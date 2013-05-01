@@ -12,6 +12,11 @@ from django_facebook.registration_backends import FacebookRegistrationBackend
 logger = logging.getLogger(__name__)
 
 
+def hash_key(key):
+    import hashlib
+    hashed = hashlib.md5(key).hexdigest()
+    return hashed
+
 def clear_persistent_graph_cache(request):
     '''
     Clears the caches for the graph cache
